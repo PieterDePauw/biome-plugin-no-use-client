@@ -1,0 +1,21 @@
+// Plugin for Javascript/TypeScript files
+language js(typescript, jsx);
+
+// Show an error if a Next.js page or layout file contains a "use client" directive
+file($name, $body) where {
+	// > Match only Next.js page or layout files
+	$name <: r"(?:.*/)?(?:page|layout)\.(?:js|jsx|ts|tsx)$",
+
+	// > Look for a top-level "use client" (either double or single quotes)
+	$body <: contains or {
+    	`"use client"` as $directive,
+		`'use client'` as $directive,
+	},
+
+	// > Report a diagnostic if any "use client" directive is found inside a Next.js page or layout file
+	register_diagnostic(
+    	span = $directive,
+    	message = "Remove the 'use client' directive.",
+		severity = "error",
+	)
+}

@@ -1,0 +1,27 @@
+{
+	"linter": { "enabled": true },
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"files": {
+		"ignoreUnknown": true,
+		"includes": [
+			// > Next.js page files
+			"**/page.js",
+			"**/page.ts",
+			"**/page.jsx",
+			"**/page.tsx",
+
+			// > Next.js layout files
+			"**/layout.js",
+			"**/layout.ts",
+			"**/layout.jsx",
+			"**/layout.tsx",
+
+			// > All other files
+			"!**/*.js",
+			"!**/*.ts",
+			"!**/*.jsx",
+			"!**/*.tsx"
+		]
+	},
+	"plugins": [ "./src/no-use-client-on-page.grit" ]
+}

@@ -1,0 +1,17 @@
+{
+	"$schema": "https://turbo.build/schema.json",
+	"globalDependencies": [
+		"package.json"
+	],
+	"globalEnv": [
+		"NODE_ENV"
+	],
+	"tasks": {
+		"test": {
+			"dependsOn": [ "^test" ],
+			"inputs": [ "tests/**", "src/**", "package.json", "vitest.config.ts" ],
+			"outputs": [ ],
+			"cache": true
+		}
+	}
+}
