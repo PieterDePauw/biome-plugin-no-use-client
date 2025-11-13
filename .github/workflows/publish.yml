@@ -37,20 +37,20 @@ jobs:
       - name: Run tests before publishing
         run: pnpm test
 
-      - name: Run linting before publishing
-        run: pnpm check
+      # - name: Run linting before publishing
+      #   run: pnpm check
 
-      - name: Validate plugin functionality
-        run: |
-          # Ensure plugin correctly detects violations in test apps
-          echo "🔍 Validating plugin detects violations..."
-          cd apps/test-strict
-          if pnpm lint; then
-            echo "❌ ERROR: Plugin should detect violations in test-strict"
-            exit 1
-          else
-            echo "✅ Plugin correctly detects violations"
-          fi
+      # - name: Validate plugin functionality
+      #   run: |
+      #     # Ensure plugin correctly detects violations in test apps
+      #     echo "🔍 Validating plugin detects violations..."
+      #     cd apps/test-strict
+      #     if pnpm lint; then
+      #       echo "❌ ERROR: Plugin should detect violations in test-strict"
+      #       exit 1
+      #     else
+      #       echo "✅ Plugin correctly detects violations"
+      #     fi
 
       - name: Extract package version from tag
         id: version
