@@ -1,9 +1,9 @@
-import * as fs from "node:fs/promises"
-import * as path from "node:path"
-import { makeTempDir, writeFileTree } from "./filesystem"
-import { npmPack, installInto } from "./package-management"
-import { runBiome, getBiomeBinPath } from "./biome-runner"
-import { clearFixtureCache } from "./fixtures"
+import * as fs from "node:fs/promises";
+import * as path from "node:path";
+import { makeTempDir, writeFileTree } from "./filesystem";
+import { npmPack, installInto } from "./package-management";
+import { runBiome, getBiomeBinPath } from "./biome-runner";
+import { clearFixtureCache } from "./fixtures";
 
 // Shared test environment for performance optimization
 let sharedTestEnv: {
@@ -35,7 +35,9 @@ export async function setupSharedTestEnv(pkgRoot: string): Promise<void> {
 // Get shared test environment (throws if not initialized)
 export function getSharedTestEnv(): NonNullable<typeof sharedTestEnv> {
 	if (!sharedTestEnv) {
-		throw new Error("Shared test environment not initialized. Call setupSharedTestEnv() first.");
+		throw new Error(
+			"Shared test environment not initialized. Call setupSharedTestEnv() first.",
+		);
 	}
 	return sharedTestEnv;
 }
@@ -62,7 +64,7 @@ export async function cleanupSharedTestEnv(): Promise<void> {
 // Fast test runner using shared environment (eliminates npm install per test)
 export async function runBiomeInSharedEnv(
 	testFiles: Record<string, string>,
-	args: string[] = ["lint", "--diagnostic-level=error", "."]
+	args: string[] = ["lint", "--diagnostic-level=error", "."],
 ): Promise<{ code: number; stdout: string; stderr: string }> {
 	const { tmpDir, biomeBin } = getSharedTestEnv();
 

@@ -1,10 +1,10 @@
-import * as child_process from "node:child_process"
-import * as util from "node:util"
-import * as path from "node:path"
-import { delay } from "./delay"
+import * as child_process from "node:child_process";
+import * as util from "node:util";
+import * as path from "node:path";
+import { delay } from "./delay";
 
 // Promisify execFile for easier async/await usage
-const execFile = util.promisify(child_process.execFile)
+const execFile = util.promisify(child_process.execFile);
 
 // Global semaphore to limit concurrent npm installs
 let npmInstallSemaphore = 0;
@@ -13,13 +13,13 @@ const MAX_CONCURRENT_INSTALLS = 1; // Serialize npm installs to prevent race con
 // Use npm pack to create a tarball of the package in cwd
 export async function npmPack(cwd: string) {
 	// > Produces a tarball in cwd and returns its absolute path
-	const { stdout } = await execFile("npm", ["pack", "--silent"], { cwd })
+	const { stdout } = await execFile("npm", ["pack", "--silent"], { cwd });
 	// > Get the tarball file name from stdout
-	const tarball = stdout.trim().split("\n").at(-1)?.trim()
+	const tarball = stdout.trim().split("\n").at(-1)?.trim();
 	// > If tarball creation failed, throw an error
-	if (!tarball) throw new Error("Failed to create npm pack tarball")
+	if (!tarball) throw new Error("Failed to create npm pack tarball");
 	// > Return the absolute path to the created tarball
-	return path.join(cwd, tarball)
+	return path.join(cwd, tarball);
 }
 
 // Install the given tarball into a new npm project in tempRoot with retry logic
@@ -32,7 +32,7 @@ export async function installInto(tempRoot: string, tarballPath: string) {
 
 	try {
 		// > Initialize a new npm project
-		await execFile("npm", ["init", "-y"], { cwd: tempRoot })
+		await execFile("npm", ["init", "-y"], { cwd: tempRoot });
 
 		// > Install the tarball package with retry logic for race conditions
 		let attempts = 0;
@@ -40,7 +40,11 @@ export async function installInto(tempRoot: string, tarballPath: string) {
 
 		while (attempts < maxAttempts) {
 			try {
-				await execFile("npm", ["i", "--silent", "--no-audit", "--no-fund", tarballPath], { cwd: tempRoot });
+				await execFile(
+					"npm",
+					["i", "--silent", "--no-audit", "--no-fund", tarballPath],
+					{ cwd: tempRoot },
+				);
 				return; // Success, exit retry loop
 			} catch (error) {
 				attempts++;

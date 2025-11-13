@@ -26,7 +26,10 @@ afterAll(async () => {
 
 describe("Core Integration Tests - Invalid Cases", () => {
 	it("should error on page.tsx with 'use client' (double quotes)", async () => {
-		const content = await readFixture('invalid', 'page-with-use-client-double-quotes.tsx');
+		const content = await readFixture(
+			"invalid",
+			"page-with-use-client-double-quotes.tsx",
+		);
 
 		const res = await runBiomeInSharedEnv({
 			"biome.jsonc": createBiomeConfig(),
@@ -39,7 +42,10 @@ describe("Core Integration Tests - Invalid Cases", () => {
 	});
 
 	it("should error on page.tsx with 'use client' (single quotes)", async () => {
-		const content = await readFixture('invalid', 'page-with-use-client-single-quotes.tsx');
+		const content = await readFixture(
+			"invalid",
+			"page-with-use-client-single-quotes.tsx",
+		);
 
 		const res = await runBiomeInSharedEnv({
 			"biome.jsonc": createBiomeConfig(),
@@ -52,7 +58,10 @@ describe("Core Integration Tests - Invalid Cases", () => {
 	});
 
 	it("should error on layout.tsx with 'use client' (double quotes)", async () => {
-		const content = await readFixture('invalid', 'layout-with-use-client-double-quotes.tsx');
+		const content = await readFixture(
+			"invalid",
+			"layout-with-use-client-double-quotes.tsx",
+		);
 
 		const res = await runBiomeInSharedEnv({
 			"biome.jsonc": createBiomeConfig(),
@@ -65,7 +74,10 @@ describe("Core Integration Tests - Invalid Cases", () => {
 	});
 
 	it("should error on layout.tsx with 'use client' (single quotes)", async () => {
-		const content = await readFixture('invalid', 'layout-with-use-client-single-quotes.tsx');
+		const content = await readFixture(
+			"invalid",
+			"layout-with-use-client-single-quotes.tsx",
+		);
 
 		const res = await runBiomeInSharedEnv({
 			"biome.jsonc": createBiomeConfig(),
@@ -78,7 +90,10 @@ describe("Core Integration Tests - Invalid Cases", () => {
 	});
 
 	it("should error on nested page with 'use client'", async () => {
-		const content = await readFixture('invalid', 'nested-page-with-use-client.tsx');
+		const content = await readFixture(
+			"invalid",
+			"nested-page-with-use-client.tsx",
+		);
 
 		const res = await runBiomeInSharedEnv({
 			"biome.jsonc": createBiomeConfig(),
@@ -93,7 +108,7 @@ describe("Core Integration Tests - Invalid Cases", () => {
 
 describe("Core Integration Tests - Valid Cases", () => {
 	it("should not error on page.tsx without 'use client'", async () => {
-		const content = await readFixture('valid', 'page-without-directive.tsx');
+		const content = await readFixture("valid", "page-without-directive.tsx");
 
 		const res = await runBiomeInSharedEnv({
 			"biome.jsonc": createBiomeConfig(),
@@ -106,7 +121,7 @@ describe("Core Integration Tests - Valid Cases", () => {
 	});
 
 	it("should not error on layout.tsx without 'use client'", async () => {
-		const content = await readFixture('valid', 'layout-without-directive.tsx');
+		const content = await readFixture("valid", "layout-without-directive.tsx");
 
 		const res = await runBiomeInSharedEnv({
 			"biome.jsonc": createBiomeConfig(),
@@ -119,7 +134,7 @@ describe("Core Integration Tests - Valid Cases", () => {
 	});
 
 	it("should not error on component with 'use client' (CRITICAL TEST)", async () => {
-		const content = await readFixture('valid', 'component-with-use-client.tsx');
+		const content = await readFixture("valid", "component-with-use-client.tsx");
 
 		const res = await runBiomeInSharedEnv({
 			"biome.jsonc": createBiomeConfig(),
@@ -134,7 +149,10 @@ describe("Core Integration Tests - Valid Cases", () => {
 
 describe("Essential Edge Cases", () => {
 	it("should not error on page with 'use client' in comment", async () => {
-		const content = await readFixture('edge-cases', 'page-with-use-client-in-comment.tsx');
+		const content = await readFixture(
+			"edge-cases",
+			"page-with-use-client-in-comment.tsx",
+		);
 
 		const res = await runBiomeInSharedEnv({
 			"biome.jsonc": createBiomeConfig(),
@@ -147,7 +165,10 @@ describe("Essential Edge Cases", () => {
 	});
 
 	it("should error on page with 'use client' not at top", async () => {
-		const content = await readFixture('edge-cases', 'page-with-use-client-not-at-top.tsx');
+		const content = await readFixture(
+			"edge-cases",
+			"page-with-use-client-not-at-top.tsx",
+		);
 
 		const res = await runBiomeInSharedEnv({
 			"biome.jsonc": createBiomeConfig(),
@@ -162,8 +183,14 @@ describe("Essential Edge Cases", () => {
 
 describe("Multi-File Scenarios", () => {
 	it("should handle multiple invalid files correctly", async () => {
-		const pageContent = await readFixture('invalid', 'page-with-use-client-double-quotes.tsx');
-		const layoutContent = await readFixture('invalid', 'layout-with-use-client-single-quotes.tsx');
+		const pageContent = await readFixture(
+			"invalid",
+			"page-with-use-client-double-quotes.tsx",
+		);
+		const layoutContent = await readFixture(
+			"invalid",
+			"layout-with-use-client-single-quotes.tsx",
+		);
 
 		const res = await runBiomeInSharedEnv({
 			"biome.jsonc": createBiomeConfig(),
@@ -176,14 +203,25 @@ describe("Multi-File Scenarios", () => {
 		expect(output).toContain("Remove the 'use client' directive.");
 
 		// Should report multiple errors (rough count check)
-		const errorCount = (output.match(/Remove the 'use client' directive\./g) || []).length;
+		const errorCount = (
+			output.match(/Remove the 'use client' directive\./g) || []
+		).length;
 		expect(errorCount).toBeGreaterThan(1);
 	});
 
 	it("should handle mixed valid and invalid files in nested structure", async () => {
-		const validPageContent = await readFixture('valid', 'page-without-directive.tsx');
-		const invalidLayoutContent = await readFixture('invalid', 'layout-with-use-client-double-quotes.tsx');
-		const componentContent = await readFixture('valid', 'component-with-use-client.tsx');
+		const validPageContent = await readFixture(
+			"valid",
+			"page-without-directive.tsx",
+		);
+		const invalidLayoutContent = await readFixture(
+			"invalid",
+			"layout-with-use-client-double-quotes.tsx",
+		);
+		const componentContent = await readFixture(
+			"valid",
+			"component-with-use-client.tsx",
+		);
 
 		const res = await runBiomeInSharedEnv({
 			"biome.jsonc": createBiomeConfig(),
@@ -197,7 +235,9 @@ describe("Multi-File Scenarios", () => {
 		expect(output).toContain("Remove the 'use client' directive.");
 
 		// Should only have one error (from layout.tsx)
-		const errorCount = (output.match(/Remove the 'use client' directive\./g) || []).length;
+		const errorCount = (
+			output.match(/Remove the 'use client' directive\./g) || []
+		).length;
 		expect(errorCount).toBe(1);
 	});
 });

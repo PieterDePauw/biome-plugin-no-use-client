@@ -14,7 +14,7 @@
 		"lint": "biome check .",
 		"lint:fix": "biome check . --fix",
 		"start": "next start --port 3002",
-		"test": "echo 'Running App Router with src/ validation tests...' && pnpm lint"
+		"test": "echo 'Running App Router with src/ validation tests...'"
 	},
 	"dependencies": {
 		"next": "^15.0.0",

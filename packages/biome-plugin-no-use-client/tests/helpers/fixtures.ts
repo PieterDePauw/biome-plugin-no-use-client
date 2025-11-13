@@ -1,17 +1,23 @@
-import * as fs from "node:fs/promises"
-import * as path from "node:path"
+import * as fs from "node:fs/promises";
+import * as path from "node:path";
 
 // Fixture content cache for performance
 let fixtureCache: Map<string, string> = new Map();
 
 // Helper to read fixture content with caching
-export async function readFixture(category: string, filename: string): Promise<string> {
+export async function readFixture(
+	category: string,
+	filename: string,
+): Promise<string> {
 	// > Create a unique cache key
 	const cacheKey = `${category}/${filename}`;
 	// > Return cached content if available
 	if (fixtureCache.has(cacheKey)) return fixtureCache.get(cacheKey)!;
 	// > Read from file system and cache
-	const content = await fs.readFile(path.join(path.resolve(__dirname, "../fixtures"), category, filename), 'utf-8');
+	const content = await fs.readFile(
+		path.join(path.resolve(__dirname, "../fixtures"), category, filename),
+		"utf-8",
+	);
 	// > Cache the content
 	fixtureCache.set(cacheKey, content);
 	// > Return the content
@@ -34,7 +40,7 @@ export async function preloadFixtures(): Promise<void> {
 			await Promise.all(
 				fixtures.map(async (filename) => {
 					await readFixture(category, filename);
-				})
+				}),
 			);
 		}
 	}
@@ -43,4 +49,4 @@ export async function preloadFixtures(): Promise<void> {
 // Clear fixture cache (used during cleanup)
 export function clearFixtureCache(): void {
 	fixtureCache.clear();
-} 
+}

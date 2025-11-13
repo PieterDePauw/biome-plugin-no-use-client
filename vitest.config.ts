@@ -11,6 +11,7 @@ export default defineConfig({
 		coverage: {
 			"provider": "v8",
 			"reporter": ["default", "json", "html"],
-		}
+		},
+		include: ["packages/**/tests/**/*.test.ts", "apps/**/tests/**/*.test.ts"],
 	},
 })

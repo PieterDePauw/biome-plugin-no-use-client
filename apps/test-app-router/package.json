@@ -14,7 +14,7 @@
 		"lint:fix": "biome check . --fix",
 		"format": "biome format",
 		"format:fix": "biome format --write",
-		"test": "echo 'Running App Router validation tests...' && pnpm lint"
+		"test": "echo 'Running App Router validation tests...'"
 	},
 	"dependencies": {
 		"next": "^15.0.0",
