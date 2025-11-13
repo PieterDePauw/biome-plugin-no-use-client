@@ -16,16 +16,13 @@
 	],
 	"files": [
 		"src",
-		"app-router.jsonc",
+		"next.jsonc",
 		"README.md"
 	],
 	"exports": {
-		"./": "./",
-		"./no-use-client-on-page.grit": "./src/no-use-client-on-page.grit",
 		"./next": "./next.jsonc",
-		".": "./no-use-client-on-page.grit",
-		"./plugin": "./src/no-use-client-on-page.grit"
-
+		"./src/no-use-client-on-page.grit": "./src/no-use-client-on-page.grit",
+		"./package.json": "./package.json"
 	},
 	"imports": {
 		"@/*": "./*"
