@@ -20,7 +20,7 @@
 				"src/app/**/layout.jsx",
 				"src/app/**/layout.tsx"
 			],
-			"plugins": [ "./node_modules/biome-plugin-no-use-client/src/no-use-client-on-page.grit"
+			"plugins": [ "../../node_modules/biome-plugin-no-use-client/src/no-use-client-on-page.grit"
 			]
 		}
 	],
