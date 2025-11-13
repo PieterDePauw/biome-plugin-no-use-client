@@ -21,7 +21,7 @@
 	],
 	"exports": {
 		"./": "./",
-		"./app-router": "./app-router.jsonc",
+		"./next": "./next.jsonc",
 		".": "./no-use-client-on-page.grit",
 		"./plugin": "./src/no-use-client-on-page.grit"
 
@@ -35,13 +35,7 @@
 	},
 	"scripts": {
 		"test": "vitest run",
-		"test:watch": "vitest",
-		"format": "biome format",
-		"format:fix": "biome format --write",
-		"check": "biome check .",
-		"check:fix": "biome check . --fix",
-		"lint": "biome check .",
-		"lint:fix": "biome check . --fix"
+		"test:watch": "vitest"
 	},
 	"devDependencies": {
 		"@types/node": "22.19.1",

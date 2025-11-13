@@ -1,6 +1,6 @@
 {
 	"$schema": "../../node_modules/@biomejs/biome/configuration_schema.json",
-	"extends": ["../../node_modules/biome-plugin-no-use-client/app-router.jsonc"],
+	"extends": ["biome-plugin-no-use-client/next"],
 	"files": {
 		"includes": [
 			"**/*.ts",
