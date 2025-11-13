@@ -17,8 +17,16 @@
 	"files": [
 		"src",
 		"next.jsonc",
+		"strict.jsonc",
+		"app-router.jsonc",
 		"README.md"
 	],
+	"exports": {
+		"./next": "./next.jsonc",
+		"./strict": "./strict.jsonc",
+		"./app-router": "./app-router.jsonc",
+		"./package.json": "./package.json"
+	},
 	"imports": {
 		"@/*": "./*"
 	},

@@ -1,0 +1,28 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"overrides": [
+		{
+			"includes": [
+				"app/**/page.js",
+				"app/**/page.ts",
+				"app/**/page.jsx",
+				"app/**/page.tsx",
+				"app/**/layout.js",
+				"app/**/layout.ts",
+				"app/**/layout.jsx",
+				"app/**/layout.tsx",
+				"src/app/**/page.js",
+				"src/app/**/page.ts",
+				"src/app/**/page.jsx",
+				"src/app/**/page.tsx",
+				"src/app/**/layout.js",
+				"src/app/**/layout.ts",
+				"src/app/**/layout.jsx",
+				"src/app/**/layout.tsx"
+			],
+			"plugins": [
+				"./src/no-use-client-on-page.grit"
+			]
+		}
+	]
+}
