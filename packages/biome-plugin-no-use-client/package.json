@@ -20,6 +20,7 @@
 		"README.md"
 	],
 	"exports": {
+		".": "./next.jsonc",
 		"./next": "./next.jsonc",
 		"./src/no-use-client-on-page.grit": "./src/no-use-client-on-page.grit",
 		"./package.json": "./package.json"
@@ -33,11 +34,15 @@
 	},
 	"scripts": {
 		"test": "vitest run",
-		"test:watch": "vitest"
+		"test:watch": "vitest",
+		"release": "np",
+		"view": "npm view biome-plugin-no-use-client",
+		"info": "npm info biome-plugin-no-use-client"
 	},
 	"devDependencies": {
 		"@types/node": "22.19.1",
 		"@types/react": "^19.2.4",
+		"np": "^10.2.0",
 		"react": "^19.2.0",
 		"vitest": "^4.0.8"
 	},
