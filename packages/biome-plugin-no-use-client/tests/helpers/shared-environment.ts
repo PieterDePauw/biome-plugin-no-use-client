@@ -1,9 +1,9 @@
 import * as fs from "node:fs/promises";
 import * as path from "node:path";
+import { getBiomeBinPath, runBiome } from "./biome-runner";
 import { makeTempDir, writeFileTree } from "./filesystem";
-import { npmPack, installInto } from "./package-management";
-import { runBiome, getBiomeBinPath } from "./biome-runner";
 import { clearFixtureCache } from "./fixtures";
+import { installInto, npmPack } from "./package-management";
 
 // Shared test environment for performance optimization
 let sharedTestEnv: {

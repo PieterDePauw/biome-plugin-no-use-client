@@ -1,6 +1,6 @@
 import * as child_process from "node:child_process";
-import * as util from "node:util";
 import * as path from "node:path";
+import * as util from "node:util";
 import { delay } from "./delay";
 
 // Promisify execFile for easier async/await usage
@@ -52,7 +52,7 @@ export async function installInto(tempRoot: string, tarballPath: string) {
 					throw error; // Re-throw on final attempt
 				}
 				// Add exponential backoff delay with jitter
-				const baseDelay = 200 * Math.pow(2, attempts);
+				const baseDelay = 200 * 2 ** attempts;
 				const jitter = Math.random() * 100;
 				await delay(baseDelay + jitter);
 			}

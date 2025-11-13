@@ -1,6 +1,6 @@
 import * as child_process from "node:child_process";
-import * as util from "node:util";
 import * as module from "node:module";
+import * as util from "node:util";
 
 // Promisify execFile for easier async/await usage
 const execFile = util.promisify(child_process.execFile);

@@ -1,7 +1,7 @@
 // Import modules
 import * as fs from "node:fs/promises";
-import * as path from "node:path";
 import * as os from "node:os";
+import * as path from "node:path";
 
 // Create a temporary directory
 export async function makeTempDir(prefix = "biome-plugin-test") {

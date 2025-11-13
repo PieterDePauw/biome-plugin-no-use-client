@@ -17,16 +17,16 @@
 		"test": "echo 'Running App Router with src/ validation tests...'"
 	},
 	"dependencies": {
-		"next": "^15.0.0",
+		"next": "^16.0.2",
 		"react": "^19.0.0",
-		"react-dom": "^19.0.0"
+		"react-dom": "^19.2.0"
 	},
 	"devDependencies": {
 		"biome-plugin-no-use-client": "workspace:*",
 		"@biomejs/biome": "^2.3.5",
 		"@types/node": "^22.0.0",
-		"@types/react": "^19.0.0",
-		"@types/react-dom": "^19.0.0",
-		"typescript": "^5.0.0"
+		"@types/react": "^19.2.4",
+		"@types/react-dom": "^19.2.3",
+		"typescript": "^5.9.3"
 	}
 }

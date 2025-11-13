@@ -62,6 +62,20 @@
 			"outputs": [ ],
 			"cache": true
 		},
+		"lint:fix": {
+			"dependsOn": [ "^lint:fix" ],
+			"inputs": [
+				"src/**",
+				"app/**",
+				"pages/**",
+				"components/**",
+				"biome.json",
+				"biome.jsonc",
+				"*.jsonc"
+			],
+			"outputs": [ ],
+			"cache": true
+		},
 		"format": {
 			"dependsOn": [ "^format" ],
 			"inputs": [

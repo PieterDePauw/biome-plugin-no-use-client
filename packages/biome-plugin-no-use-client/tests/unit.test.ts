@@ -1,9 +1,9 @@
 // Import modules
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 import {
+	extractFilenamePattern,
 	readFixture,
 	shouldTriggerRule,
-	extractFilenamePattern,
 } from "./helpers";
 
 /**
@@ -18,7 +18,7 @@ describe("GritQL Pattern Logic - File Name Matching", () => {
 	const pageLayoutRegex = extractFilenamePattern();
 
 	// > Define valid page file names for testing
-	/* biome-ignore formatting: "keep on a single line" */
+	/* biome-ignore format: "keep on a single line" */
 	const validPageFileNames = [
 		"page.js",
 		"page.jsx",
@@ -31,7 +31,7 @@ describe("GritQL Pattern Logic - File Name Matching", () => {
 	];
 
 	// > Define valid layout file names for testing
-	/* biome-ignore formatting: "keep on a single line" */
+	/* biome-ignore format: "keep on a single line" */
 	const validLayoutFileNames = [
 		"layout.js",
 		"layout.jsx",
@@ -44,7 +44,7 @@ describe("GritQL Pattern Logic - File Name Matching", () => {
 	];
 
 	// > Define invalid file names that should not match as page/layout files
-	/* biome-ignore formatting: "keep on a single line" */
+	/* biome-ignore format: "keep on a single line" */
 	const invalidFileNames = [
 		"component.tsx",
 		"Button.jsx",

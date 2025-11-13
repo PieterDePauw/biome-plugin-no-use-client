@@ -1,12 +1,12 @@
 import * as path from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import {
-	setupSharedTestEnv,
 	cleanupSharedTestEnv,
-	runBiomeInSharedEnv,
-	readFixture,
 	createBiomeConfig,
 	preloadFixtures,
+	readFixture,
+	runBiomeInSharedEnv,
+	setupSharedTestEnv,
 } from "./helpers";
 
 const PKG_ROOT = path.resolve(__dirname, "..");

@@ -2,7 +2,7 @@ import * as fs from "node:fs/promises";
 import * as path from "node:path";
 
 // Fixture content cache for performance
-let fixtureCache: Map<string, string> = new Map();
+const fixtureCache: Map<string, string> = new Map();
 
 // Helper to read fixture content with caching
 export async function readFixture(
@@ -12,7 +12,7 @@ export async function readFixture(
 	// > Create a unique cache key
 	const cacheKey = `${category}/${filename}`;
 	// > Return cached content if available
-	if (fixtureCache.has(cacheKey)) return fixtureCache.get(cacheKey)!;
+	if (fixtureCache.has(cacheKey)) return fixtureCache.get(cacheKey) as string;
 	// > Read from file system and cache
 	const content = await fs.readFile(
 		path.join(path.resolve(__dirname, "../fixtures"), category, filename),

@@ -1,7 +1,27 @@
 {
 	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
 	"extends": ["biome-plugin-no-use-client/app-router"],
+	"files": {
+		"includes": [
+			"**/*.ts",
+			"**/*.tsx",
+			"**/*.js",
+			"**/*.jsx",
+			"!node_modules",
+			"!dist",
+			"!.turbo",
+			"!build",
+			"!out/",
+			"!.next",
+			"!.vercel"
+		]
+	},
 	"linter": {
-		"enabled": true
+		"enabled": true,
+		"rules": {
+			"correctness": {
+				"noUnusedImports": "off"
+			}
+		}
 	}
 }
