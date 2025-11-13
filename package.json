@@ -1,8 +1,20 @@
 {
-	"name": "biome-plugin-no-use-client-monorepo",
-	"version": "0.0.1",
-	"private": true,
+	"name": "biome-plugin-no-use-client",
+	"version": "0.2.0",
 	"description": "Monorepo for Biome GritQL plugin testing with multiple Next.js applications",
+	"author": "PieterDePauw",
+	"private": true,
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/PieterDePauw/biome-plugin-no-use-client.git",
+		"directory": "packages/biome-plugin-no-use-client"
+	},
+	"homepage": "https://github.com/PieterDePauw/biome-plugin-no-use-client/tree/main/packages/biome-plugin-no-use-client#readme",
+	"bugs": {
+		"url": "https://github.com/PieterDePauw/biome-plugin-no-use-client/issues"
+	},
+	"keywords": [ "biome", "biome.js", "plugin", "grit", "gritql", "next.js", "nextjs", "linter" ],
 	"scripts": {
 		"build": "turbo run build",
 		"test": "turbo run test",
