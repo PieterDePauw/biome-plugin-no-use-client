@@ -1,17 +1,73 @@
 {
 	"$schema": "https://turbo.build/schema.json",
 	"globalDependencies": [
-		"package.json"
+		"package.json",
+		"pnpm-workspace.yaml"
 	],
 	"globalEnv": [
 		"NODE_ENV"
 	],
 	"tasks": {
-		"test": {
-			"dependsOn": [ "^test" ],
-			"inputs": [ "tests/**", "src/**", "package.json", "vitest.config.ts" ],
-			"outputs": [ ],
+		"build": {
+			"dependsOn": ["^build"],
+			"outputs": [
+				".next/**",
+				"!.next/cache/**",
+				"dist/**"
+			],
 			"cache": true
+		},
+		"test": {
+			"dependsOn": ["^test"],
+			"inputs": [
+				"tests/**",
+				"src/**",
+				"package.json",
+				"vitest.config.ts",
+				"**/*.test.ts",
+				"**/*.spec.ts"
+			],
+			"outputs": ["coverage/**"],
+			"cache": true
+		},
+		"test:watch": {
+			"cache": false,
+			"persistent": true
+		},
+		"lint": {
+			"dependsOn": ["^build"],
+			"inputs": [
+				"src/**",
+				"app/**",
+				"pages/**",
+				"components/**",
+				"biome.json",
+				"biome.jsonc",
+				"*.jsonc"
+			],
+			"outputs": [],
+			"cache": true
+		},
+		"lint:expect-errors": {
+			"dependsOn": ["^build"],
+			"inputs": [
+				"src/**",
+				"app/**",
+				"pages/**",
+				"components/**",
+				"biome.json",
+				"biome.jsonc",
+				"*.jsonc"
+			],
+			"outputs": [],
+			"cache": true
+		},
+		"dev": {
+			"cache": false,
+			"persistent": true
+		},
+		"clean": {
+			"cache": false
 		}
 	}
 }

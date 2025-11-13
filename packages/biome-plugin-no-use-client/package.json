@@ -1,0 +1,48 @@
+{
+	"name": "biome-plugin-no-use-client",
+	"version": "0.0.1",
+	"description": "Biome GritQL plugin that errors when Next.js page/layout files contain a `use client` directive.",
+	"author": "Pieter",
+	"license": "MIT",
+	"keywords": [
+		"biome",
+		"biome.js",
+		"plugin",
+		"grit",
+		"gritql",
+		"next.js",
+		"nextjs",
+		"linter"
+	],
+	"files": [
+		"src",
+		"next.jsonc",
+		"strict.jsonc",
+		"app-router.jsonc",
+		"README.md"
+	],
+	"exports": {
+		"./next": "./next.jsonc",
+		"./strict": "./strict.jsonc",
+		"./app-router": "./app-router.jsonc",
+		"./package.json": "./package.json"
+	},
+	"imports": {
+		"@/*": "./*"
+	},
+	"packageManager": "pnpm@10.22.0",
+	"engines": {
+		"node": ">=18"
+	},
+	"scripts": {
+		"test": "vitest run",
+		"test:watch": "vitest"
+	},
+	"devDependencies": {
+		"@types/node": "22.19.1",
+		"vitest": "^4.0.8"
+	},
+	"peerDependencies": {
+		"@biomejs/biome": "^2.3.5"
+	}
+}
