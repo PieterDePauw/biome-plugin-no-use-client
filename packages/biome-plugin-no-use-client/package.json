@@ -1,29 +1,24 @@
 {
 	"name": "biome-plugin-no-use-client",
-	"version": "0.0.1",
+	"version": "0.2.0",
 	"description": "Biome GritQL plugin that errors when Next.js page/layout files contain a `use client` directive.",
-	"author": "Pieter",
+	"author": "PieterDePauw",
 	"license": "MIT",
-	"keywords": [
-		"biome",
-		"biome.js",
-		"plugin",
-		"grit",
-		"gritql",
-		"next.js",
-		"nextjs",
-		"linter"
-	],
-	"files": [
-		"src",
-		"next.jsonc",
-		"README.md"
-	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/PieterDePauw/biome-plugin-no-use-client.git",
+		"directory": "packages/biome-plugin-no-use-client"
+	},
+	"homepage": "https://github.com/PieterDePauw/biome-plugin-no-use-client/tree/main/packages/biome-plugin-no-use-client#readme",
+	"bugs": {
+		"url": "https://github.com/PieterDePauw/biome-plugin-no-use-client/issues"
+	},
+	"keywords": [ "biome", "biome.js", "plugin", "grit", "gritql", "next.js", "nextjs", "linter" ],
+	"files": [ "src", "next.jsonc", "README.md", "LICENSE", "CHANGELOG.md" ],
 	"exports": {
 		".": "./next.jsonc",
 		"./next": "./next.jsonc",
-		"./src/no-use-client-on-page.grit": "./src/no-use-client-on-page.grit",
-		"./package.json": "./package.json"
+		"./src/no-use-client-on-page.grit": "./src/no-use-client-on-page.grit"
 	},
 	"imports": {
 		"@/*": "./*"
@@ -40,7 +35,7 @@
 		"info": "npm info biome-plugin-no-use-client"
 	},
 	"devDependencies": {
-		"@types/node": "22.19.1",
+		"@types/node": "24.10.1",
 		"@types/react": "^19.2.4",
 		"np": "^10.2.0",
 		"react": "^19.2.0",

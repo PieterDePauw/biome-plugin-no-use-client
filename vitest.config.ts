@@ -8,10 +8,10 @@ export default defineConfig({
 		environment: "node",
 		testTimeout: 120_000,
 		reporters: ["default"],
-		coverage: {
-			"provider": "v8",
-			"reporter": ["default", "json", "html"],
-		},
+		coverage: { provider: "v8", reporter: ["default"] },
 		include: ["packages/**/tests/**/*.test.ts", "apps/**/tests/**/*.test.ts"],
+		pool: "threads",
+		maxConcurrency: 4,
+		maxWorkers: 4,
 	},
 })

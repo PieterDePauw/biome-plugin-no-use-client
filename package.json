@@ -15,7 +15,8 @@
 		"check": "turbo run check",
 		"check:fix": "turbo run check:fix",
 		"dev": "turbo run dev --parallel",
-		"clean": "turbo run clean && rm -rf node_modules .turbo"
+		"clean": "turbo run clean && rm -rf node_modules .turbo",
+		"release": "cd packages/biome-plugin-no-use-client && pnpm release"
 	},
 	"devDependencies": {
 		"biome-plugin-no-use-client": "workspace:*",

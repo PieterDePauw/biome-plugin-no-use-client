@@ -18,25 +18,39 @@ yarn add -D biome-plugin-no-use-client
 
 ## Usage
 
-Add the plugin to your `biome.json` or `biome.jsonc` configuration file:
+Add the plugin configuration to your `biome.json` or `biome.jsonc` configuration file:
 
-### Basic Configuration
+### Recommended Configuration
 
 ```json
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "extends": ["biome-plugin-no-use-client"],
   "linter": {
     "enabled": true
-  },
-  "plugins": [
-    "./node_modules/biome-plugin-no-use-client/src/no-use-client-on-page.grit"
-  ]
+  }
 }
 ```
 
-### Optimized Configuration (Recommended)
+### Alternative Explicit Configuration
 
-For better performance, you can configure Biome to only run this plugin on Next.js page and layout files:
+You can also use the explicit path if you prefer:
+
+```json
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "extends": ["biome-plugin-no-use-client/next"],
+  "linter": {
+    "enabled": true
+  }
+}
+```
+
+Both configurations are equivalent and will automatically scope the plugin to only run on Next.js page and layout files for optimal performance.
+
+### Manual Configuration (Advanced)
+
+If you need full control over the configuration, you can also configure the plugin manually:
 
 ```json
 {
@@ -44,25 +58,30 @@ For better performance, you can configure Biome to only run this plugin on Next.
   "linter": {
     "enabled": true
   },
-  "files": {
-    "ignoreUnknown": true,
-    "includes": [
-      "**/page.js",
-      "**/page.ts",
-      "**/page.jsx",
-      "**/page.tsx",
-      "**/layout.js",
-      "**/layout.ts",
-      "**/layout.jsx",
-      "**/layout.tsx",
-      "!**/*.js",
-      "!**/*.ts",
-      "!**/*.jsx",
-      "!**/*.tsx"
-    ]
-  },
-  "plugins": [
-    "./node_modules/biome-plugin-no-use-client/src/no-use-client-on-page.grit"
+  "overrides": [
+    {
+      "includes": [
+        "**/app/**/page.js",
+        "**/app/**/page.jsx",
+        "**/app/**/page.ts",
+        "**/app/**/page.tsx",
+        "**/app/**/layout.js",
+        "**/app/**/layout.jsx",
+        "**/app/**/layout.ts",
+        "**/app/**/layout.tsx",
+        "**/src/app/**/page.js",
+        "**/src/app/**/page.jsx",
+        "**/src/app/**/page.ts",
+        "**/src/app/**/page.tsx",
+        "**/src/app/**/layout.js",
+        "**/src/app/**/layout.jsx",
+        "**/src/app/**/layout.ts",
+        "**/src/app/**/layout.tsx"
+      ],
+      "plugins": [
+        "./node_modules/biome-plugin-no-use-client/src/no-use-client-on-page.grit"
+      ]
+    }
   ]
 }
 ```

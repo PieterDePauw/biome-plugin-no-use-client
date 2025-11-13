@@ -52,7 +52,4 @@ export function createBiomeConfig(pluginPath?: string): string {
 		"linter": { "enabled": true },
 		"plugins": ["${plugin}"]
 	}`;
-}
-
-// Re-export the shouldTriggerRule from grit-pattern-extractor for backward compatibility
-export { shouldTriggerRule } from "./grit-pattern-extractor";
+} 
