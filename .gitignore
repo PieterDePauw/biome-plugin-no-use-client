@@ -30,3 +30,90 @@ dist/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+**/node_modules
+**/.pnp
+**/.pnp.js
+
+# testing
+**/coverage
+
+# next.js
+**/.next
+**/.next/
+**/out/
+
+# production
+**/build
+
+# misc
+**/.DS_Store
+**/*.pem
+
+# debug
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/.pnpm-debug.log*
+
+# local env files
+**/.env
+**/.env.local
+**/.env.development.local
+**/.env.test.local
+**/.env.production.local
+
+# vercel
+**/.vercel
+**/.vercel/
+**/.env*.local
+
+# misc
+**/.deprecated
+**/.experimental
+
+# Playwright
+**/node_modules/**
+**/test-results/**
+**/playwright-report/**
+**/blob-report/
+**/playwright/.cache/
+
+# Local development certificates
+**/certificates
+
+# Dependency graph
+**/.dependencygraph
+
+# TypeScript build info
+**/tsconfig.tsbuildinfo
+
+# Turborepo
+.turbo
+**/.turbo
+**/.turbo/**
+
+# Vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Build output
+**/dist
+**/.react-email
+
+# Google credentials
+**/*apps.googleusercontent.com.json
+**/*tokens.json
+
+# No .zip files
+**/*.zip
+
+./apps/demo-app/data/tokens.json
+apps/demo-app/data/tokens.json

@@ -1,18 +1,18 @@
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Test App Router',
-  description: 'Testing Biome plugin with App Router',
-}
+	title: "Test App Router",
+	description: "Testing Biome plugin with App Router",
+};
 
 export default function RootLayout({
-  children,
+	children,
 }: {
-  children: React.ReactNode
+	children: React.ReactNode;
 }) {
-  return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  )
+	return (
+		<html lang="en">
+			<body>{children}</body>
+		</html>
+	);
 }

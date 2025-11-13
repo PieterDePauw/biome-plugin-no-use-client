@@ -1,13 +1,19 @@
 {
 	"name": "@test/app-router",
 	"version": "0.0.1",
+	"type": "module",
 	"private": true,
 	"description": "Test application for Next.js App Router with Biome plugin",
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
+		"check": "biome check .",
+		"check:fix": "biome check . --fix",
 		"lint": "biome check .",
+		"lint:fix": "biome check . --fix",
+		"format": "biome format",
+		"format:fix": "biome format --write",
 		"test": "echo 'Running App Router validation tests...' && pnpm lint"
 	},
 	"dependencies": {

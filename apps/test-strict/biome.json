@@ -1,22 +1,6 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.3.5/schema.json",
-	"overrides": [
-		{
-			"includes": [
-				"**/page.js",
-				"**/page.ts",
-				"**/page.jsx",
-				"**/page.tsx",
-				"**/layout.js",
-				"**/layout.ts",
-				"**/layout.jsx",
-				"**/layout.tsx"
-			],
-			"plugins": [
-				"../../packages/biome-plugin-no-use-client/src/no-use-client-on-page.grit"
-			]
-		}
-	],
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"extends": [ "biome-plugin-no-use-client/app-router" ],
 	"linter": {
 		"enabled": true
 	}

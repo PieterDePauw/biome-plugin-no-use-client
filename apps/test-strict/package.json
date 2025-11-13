@@ -2,12 +2,18 @@
 	"name": "@test/strict",
 	"version": "0.0.1",
 	"private": true,
+	"type": "module",
 	"description": "Strict validation test application for Biome plugin",
 	"scripts": {
 		"dev": "next dev --port 3003",
 		"build": "next build",
 		"start": "next start --port 3003",
+		"format": "biome format",
+		"format:fix": "biome format --write",
+		"check": "biome check .",
+		"check:fix": "biome check . --fix",
 		"lint": "biome check .",
+		"lint:fix": "biome check . --fix",
 		"lint:expect-errors": "biome check . || echo 'Expected errors found - validation working correctly'",
 		"test": "echo 'Running strict validation tests...' && pnpm lint:expect-errors"
 	},

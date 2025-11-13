@@ -2,12 +2,18 @@
 	"name": "@test/app-src-dir",
 	"version": "0.0.1",
 	"private": true,
+	"type": "module",
 	"description": "Test application for App Router with src/ directory structure",
 	"scripts": {
 		"dev": "next dev --port 3002",
 		"build": "next build",
-		"start": "next start --port 3002",
+		"format": "biome format",
+		"format:fix": "biome format --write",
+		"check": "biome check .",
+		"check:fix": "biome check . --fix",
 		"lint": "biome check .",
+		"lint:fix": "biome check . --fix",
+		"start": "next start --port 3002",
 		"test": "echo 'Running App Router with src/ validation tests...' && pnpm lint"
 	},
 	"dependencies": {

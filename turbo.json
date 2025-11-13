@@ -9,7 +9,7 @@
 	],
 	"tasks": {
 		"build": {
-			"dependsOn": ["^build"],
+			"dependsOn": [ "^build" ],
 			"outputs": [
 				".next/**",
 				"!.next/cache/**",
@@ -18,7 +18,7 @@
 			"cache": true
 		},
 		"test": {
-			"dependsOn": ["^test"],
+			"dependsOn": [ "^test" ],
 			"inputs": [
 				"tests/**",
 				"src/**",
@@ -27,7 +27,7 @@
 				"**/*.test.ts",
 				"**/*.spec.ts"
 			],
-			"outputs": ["coverage/**"],
+			"outputs": [ "coverage/**" ],
 			"cache": true
 		},
 		"test:watch": {
@@ -35,7 +35,7 @@
 			"persistent": true
 		},
 		"lint": {
-			"dependsOn": ["^build"],
+			"dependsOn": [ "^build" ],
 			"inputs": [
 				"src/**",
 				"app/**",
@@ -45,11 +45,11 @@
 				"biome.jsonc",
 				"*.jsonc"
 			],
-			"outputs": [],
+			"outputs": [ ],
 			"cache": true
 		},
 		"lint:expect-errors": {
-			"dependsOn": ["^build"],
+			"dependsOn": [ "^build" ],
 			"inputs": [
 				"src/**",
 				"app/**",
@@ -59,7 +59,63 @@
 				"biome.jsonc",
 				"*.jsonc"
 			],
-			"outputs": [],
+			"outputs": [ ],
+			"cache": true
+		},
+		"format": {
+			"dependsOn": [ "^format" ],
+			"inputs": [
+				"src/**",
+				"app/**",
+				"pages/**",
+				"components/**",
+				"biome.json",
+				"biome.jsonc",
+				"*.jsonc"
+			],
+			"outputs": [ ],
+			"cache": true
+		},
+		"format:fix": {
+			"dependsOn": [ "^format:fix" ],
+			"inputs": [
+				"src/**",
+				"app/**",
+				"pages/**",
+				"components/**",
+				"biome.json",
+				"biome.jsonc",
+				"*.jsonc"
+			],
+			"outputs": [ ],
+			"cache": true
+		},
+		"check": {
+			"dependsOn": [ "^check" ],
+			"inputs": [
+				"src/**",
+				"app/**",
+				"pages/**",
+				"components/**",
+				"biome.json",
+				"biome.jsonc",
+				"*.jsonc"
+			],
+			"outputs": [ ],
+			"cache": true
+		},
+		"check:fix": {
+			"dependsOn": [ "^check:fix" ],
+			"inputs": [
+				"src/**",
+				"app/**",
+				"pages/**",
+				"components/**",
+				"biome.json",
+				"biome.jsonc",
+				"*.jsonc"
+			],
+			"outputs": [ ],
 			"cache": true
 		},
 		"dev": {

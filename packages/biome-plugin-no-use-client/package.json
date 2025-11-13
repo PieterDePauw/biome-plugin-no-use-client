@@ -16,14 +16,10 @@
 	],
 	"files": [
 		"src",
-		"next.jsonc",
-		"strict.jsonc",
 		"app-router.jsonc",
 		"README.md"
 	],
 	"exports": {
-		"./next": "./next.jsonc",
-		"./strict": "./strict.jsonc",
 		"./app-router": "./app-router.jsonc",
 		"./package.json": "./package.json"
 	},
@@ -36,10 +32,18 @@
 	},
 	"scripts": {
 		"test": "vitest run",
-		"test:watch": "vitest"
+		"test:watch": "vitest",
+		"format": "biome format",
+		"format:fix": "biome format --write",
+		"check": "biome check .",
+		"check:fix": "biome check . --fix",
+		"lint": "biome check .",
+		"lint:fix": "biome check . --fix"
 	},
 	"devDependencies": {
 		"@types/node": "22.19.1",
+		"@types/react": "^19.2.4",
+		"react": "^19.2.0",
 		"vitest": "^4.0.8"
 	},
 	"peerDependencies": {

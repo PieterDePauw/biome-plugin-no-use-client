@@ -8,6 +8,12 @@
 		"test": "turbo run test",
 		"test:watch": "turbo run test:watch",
 		"lint": "turbo run lint",
+		"lint:expect-errors": "turbo run lint:expect-errors",
+		"lint:fix": "turbo run lint:fix",
+		"format": "turbo run format",
+		"format:fix": "turbo run format:fix",
+		"check": "turbo run check",
+		"check:fix": "turbo run check:fix",
 		"dev": "turbo run dev --parallel",
 		"clean": "turbo run clean && rm -rf node_modules .turbo"
 	},

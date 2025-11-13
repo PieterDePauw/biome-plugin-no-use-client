@@ -18,10 +18,18 @@
 				"src/app/**/layout.js",
 				"src/app/**/layout.ts",
 				"src/app/**/layout.jsx",
-				"src/app/**/layout.tsx"
+				"src/app/**/layout.tsx",
+				"**/page.js",
+				"**/page.ts",
+				"**/page.jsx",
+				"**/page.tsx",
+				"**/layout.js",
+				"**/layout.ts",
+				"**/layout.jsx",
+				"**/layout.tsx"
 			],
 			"plugins": [
-				"./src/no-use-client-on-page.grit"
+				"./node_modules/biome-plugin-no-use-client/src/no-use-client-on-page.grit"
 			]
 		}
 	]
