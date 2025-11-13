@@ -20,8 +20,11 @@
 		"README.md"
 	],
 	"exports": {
+		"./": "./",
 		"./app-router": "./app-router.jsonc",
-		"./package.json": "./package.json"
+		".": "./no-use-client-on-page.grit",
+		"./plugin": "./src/no-use-client-on-page.grit"
+
 	},
 	"imports": {
 		"@/*": "./*"
