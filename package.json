@@ -3,7 +3,6 @@
 	"version": "0.2.0",
 	"description": "Monorepo for Biome GritQL plugin testing with multiple Next.js applications",
 	"author": "PieterDePauw",
-	"private": true,
 	"license": "MIT",
 	"repository": {
 		"type": "git",
