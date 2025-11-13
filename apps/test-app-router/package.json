@@ -24,7 +24,7 @@
 	"devDependencies": {
 		"biome-plugin-no-use-client": "workspace:*",
 		"@biomejs/biome": "^2.3.5",
-		"@types/node": "^22.0.0",
+		"@types/node": "^22.19.1",
 		"@types/react": "^19.2.4",
 		"@types/react-dom": "^19.2.3",
 		"typescript": "^5.9.3"
