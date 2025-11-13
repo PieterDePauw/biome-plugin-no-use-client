@@ -1,0 +1,117 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18, 20]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.22.0
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run tests
+        run: pnpm test
+
+  lint:
+    name: Lint & Format
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.22.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run Biome check
+        run: pnpm check
+
+      - name: Run linter on test applications
+        run: pnpm lint
+
+      - name: Check formatting
+        run: pnpm format
+
+  plugin-validation:
+    name: Plugin Validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.22.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Validate plugin detects violations
+        run: |
+          # Test that plugin correctly detects "use client" in page files
+          cd apps/test-strict
+          if pnpm lint; then
+            echo "ERROR: Plugin should have detected violations in test-strict app"
+            exit 1
+          else
+            echo "✅ Plugin correctly detected violations in page/layout files"
+          fi
+
+      - name: Validate plugin allows components
+        run: |
+          # Verify that components with "use client" are not flagged
+          cd packages/biome-plugin-no-use-client
+          pnpm test
+          if [ $? -eq 0 ]; then
+            echo "✅ Plugin tests pass - components with 'use client' are correctly allowed"
+          else
+            echo "ERROR: Plugin tests failed"
+            exit 1
+          fi
