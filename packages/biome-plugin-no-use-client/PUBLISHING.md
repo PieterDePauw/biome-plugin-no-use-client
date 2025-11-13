@@ -21,14 +21,14 @@ This document describes how to publish new versions of `biome-plugin-no-use-clie
 
 ## Publishing Process
 
-The publishing workflow is streamlined using the `np` tool, which is already configured.
+The publishing workflow is streamlined using the `release-it` tool, which provides reliable version/tag synchronization for monorepo packages.
 
 ### Step 1: Navigate to Package Directory
 ```bash
 cd /Users/pieter/GitHub/biome-plugin-no-use-client/packages/biome-plugin-no-use-client
 ```
 
-### Step 2: Run Tests (Optional - np will do this automatically)
+### Step 2: Run Tests (Optional - release-it will do this automatically)
 ```bash
 pnpm test
 ```
@@ -38,11 +38,11 @@ pnpm test
 pnpm release
 ```
 
-That's it! The `np` tool will guide you through the process with interactive prompts.
+That's it! The `release-it` tool will guide you through the process with interactive prompts.
 
-## What `np` Does Automatically
+## What `release-it` Does Automatically
 
-When you run `pnpm release`, the `np` tool will:
+When you run `pnpm release`, the `release-it` tool will:
 
 1. **Pre-flight Checks**:
    - Verify git working directory is clean
@@ -63,6 +63,31 @@ When you run `pnpm release`, the `np` tool will:
    - Push commits and tags to GitHub
    - Publish package to NPM
    - Create GitHub release (optional)
+
+## Key Improvements Over Previous Workflow
+
+`release-it` provides several advantages over the previous `np` tool:
+
+### ✅ **Reliable Version/Tag Synchronization**
+- **Fixed monorepo issue**: `release-it` properly handles subdirectory packages
+- **Correct order**: Version changes are committed BEFORE tags are created
+- **No more mismatches**: GitHub Actions version verification always passes
+- **Eliminates manual fixes**: No need to delete/recreate tags due to timing issues
+
+### ✅ **Better Monorepo Support**
+- Designed specifically for monorepo workflows
+- Proper git operations from subdirectories
+- Better handling of workspace dependencies
+
+### ✅ **Enhanced CI/CD Integration**
+- More reliable automation with GitHub Actions
+- Consistent git history and tagging
+- Automatic GitHub release creation with changelog
+
+### ✅ **Same Developer Experience**
+- Uses the same `pnpm release` command
+- Interactive prompts for version selection
+- Familiar workflow, improved reliability
 
 ## Version Selection Guidelines
 
